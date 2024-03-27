@@ -48,4 +48,11 @@ public class Musica {
     public void setGeneroMusical(String generoMusical) {
         this.generoMusical = generoMusical;
     }
+
+    @Override
+    public String toString() {
+        return  "nome='" + nome + '\'' +
+                ", generoMusical='" + generoMusical + '\'' +
+                ", cantor=" + cantor.getNome();
+    }
 }

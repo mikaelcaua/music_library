@@ -12,7 +12,7 @@ public class Cantor {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(unique = true) //não ter cantor com nome igual
+    @Column(unique = true)
     private String nome;
     private String generoMusical;
     private Integer idade;
@@ -53,12 +53,8 @@ public class Cantor {
 
     @Override
     public String toString() {
-        return "Cantor{" +
-                "id=" + id +
+        return  "id=" + id +
                 ", nome='" + nome + '\'' +
-                ", generoMusical='" + generoMusical + '\'' +
-                ", idade=" + idade +
-                ", musicas=" + musicas +
-                '}';
+                ", generoMusical='" + generoMusical;
     }
 }

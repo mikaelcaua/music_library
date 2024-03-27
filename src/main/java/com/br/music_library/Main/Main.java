@@ -45,8 +45,10 @@ public class Main {
                     cadastrarMusica();
                     break;
                 case 3:
+                    buscarMusicaCantor();
                     break;
                 case 4:
+                    listarTodasMusicas();
                     break;
                 default:
                     System.out.println("Opção Inválida");
@@ -93,6 +95,7 @@ public class Main {
 
             cantorSelecionado.getMusicas().add(musicaCriada);
             musicaCriada.setCantor(cantorSelecionado);
+            musicaCriada.setGeneroMusical(cantorSelecionado.getGeneroMusical());
             repository.save(cantorSelecionado);
 
         }
@@ -101,5 +104,18 @@ public class Main {
         }
 
 
+    }
+
+    private void buscarMusicaCantor(){
+        System.out.println("Insira o nome do cantor que você deseja buscar as músicas: ");
+        scanner.nextLine();
+        input = scanner.nextLine();
+        List<Cantor> buscados = repository.findAllByNomeIgnoreCaseContaining(input);
+        buscados.forEach(System.out::println);
+    }
+
+    private void listarTodasMusicas(){
+        List<Musica> todasMusicas = repository.findAllMusics();
+        todasMusicas.forEach(System.out::println);
     }
 }
